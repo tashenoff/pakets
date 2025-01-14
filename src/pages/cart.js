@@ -65,7 +65,7 @@ const Cart = () => {
       ((deliveryMethodId === 2 || deliveryMethodId === 3) ? `Адрес доставки: ${deliveryAddress}\n` : '') +
       `Общая стоимость: ${totalPrice} тенге\n\nТовары:\n${orderItems}`;
 
-    const whatsappURL = `https://wa.me/+77781647391?text=${encodeURIComponent(message)}`;
+    const whatsappURL = `https://wa.me/+77017896556?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');
   };
 
