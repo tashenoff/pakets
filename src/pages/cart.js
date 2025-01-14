@@ -58,7 +58,7 @@ const Cart = () => {
     const message = `Здравствуйте!\nМой заказ:\n\n` +
       `ФИО: ${fullName}\n` +
       `Телефон: ${phone}\n` +
-      (additionalPhone ? `Доп. телефон: ${additionalPhone}\n` : '') +
+      (additionalPhone ? `Дополнительный телефон: ${additionalPhone}\n` : '') +
       `Email: ${email}\n` +
       `Комментарий: ${comment || 'Нет'}\n` +
       `Способ доставки: ${deliveryMethods[deliveryMethodId]}\n` +
