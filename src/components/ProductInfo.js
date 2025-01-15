@@ -66,8 +66,8 @@ const ProductInfo = () => {
         </tbody>
       </table> */}
 
-      <h2 className="mt-8 text-xl font-semibold">Таблица цветов</h2>
-      <table className="w-full text-center mt-4">
+      {/* <h2 className="mt-8 text-xl font-semibold">Таблица цветов</h2> */}
+      {/* <table className="w-full text-center mt-4">
         <tbody>
           {[
             ['https://www.logo-pak.ru/images/clrs/20.png', 'https://www.logo-pak.ru/images/clrs/12.png', 'https://www.logo-pak.ru/images/clrs/16.png', 'https://www.logo-pak.ru/images/clrs/13.png'],
@@ -86,7 +86,7 @@ const ProductInfo = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
     </div>
   );
 };

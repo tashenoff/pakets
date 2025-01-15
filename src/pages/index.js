@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Slider from '../components/Slider';
 export default function Home() {
-    const { t } = useTranslation('common'); // 'common' соответствует имени JSON-файла
+    const { t } = useTranslation('common'); 
 
     return (
         <>

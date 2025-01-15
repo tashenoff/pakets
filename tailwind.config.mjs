@@ -5,6 +5,7 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}", // Путь для компонентов
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}", // Путь для app (если используется)
   ],
+  darkMode: 'class', // Отключаем автоопределение темы устройства
   theme: {
     extend: {
       colors: {
@@ -17,11 +18,11 @@ export default {
     require('daisyui'), // Подключение DaisyUI
   ],
   daisyui: {
-    themes: ["light", "dark", "cupcake"], // Укажите используемые темы
-    base: true, // Базовые стили DaisyUI (включены по умолчанию)
+    themes: ["dark"], // Принудительное использование только тёмной темы
+    base: true, // Включение базовых стилей DaisyUI
     styled: true, // Включение стандартной стилизации компонентов
     utils: true, // Включение утилитарных классов DaisyUI
-    logs: true, // Логи для отладки (выводятся в консоль)
-    rtl: false, // Поддержка RTL (если потребуется, можно включить)
+    logs: true, // Логи для отладки
+    rtl: false, // RTL не используется
   },
 };
