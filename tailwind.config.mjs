@@ -5,8 +5,18 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}", // Путь для компонентов
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}", // Путь для app (если используется)
   ],
-  darkMode: 'class', // Отключаем автоопределение темы устройства
+  darkMode: 'class', // Включение классовой тёмной темы
   theme: {
+    container: {
+      center: true, // Центрирование контейнера
+      padding: '1rem', // Внутренние отступы
+      screens: {
+        sm: '600px', // Максимальная ширина для small screens
+        md: '1400px', // Максимальная ширина для medium screens
+        lg: '800px', // Максимальная ширина для large screens
+        xl: '900px', // Максимальная ширина для extra large screens
+      },
+    },
     extend: {
       colors: {
         background: "var(--background)",
@@ -18,11 +28,11 @@ export default {
     require('daisyui'), // Подключение DaisyUI
   ],
   daisyui: {
-    themes: ["dark"], // Принудительное использование только тёмной темы
-    base: true, // Включение базовых стилей DaisyUI
-    styled: true, // Включение стандартной стилизации компонентов
-    utils: true, // Включение утилитарных классов DaisyUI
-    logs: true, // Логи для отладки
-    rtl: false, // RTL не используется
+    themes: ["light", "dark"], // Поддержка как светлой, так и тёмной темы
+    base: true,
+    styled: true,
+    utils: true,
+    logs: true,
+    rtl: false,
   },
 };

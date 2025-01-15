@@ -25,13 +25,13 @@ body {
 /* Для темной темы */
 .dark {
   --text-color: white;
-
+  --background-color: white;
 }
 
 /* Для светлой темы */
 .light {
   --text-color: black;
-
+  --background-color: white;
 }
 
 /* Применение переменных */

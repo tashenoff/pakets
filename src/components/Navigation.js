@@ -6,26 +6,30 @@ import Image from "next/image";
 const Navigation = () => {
     return (
         <nav className="bg-base-200 p-4 px-10">
-            <ul className="flex justify-between items-center w-full">
-                <div className='flex space-x-4 items-center '>
+            <div className='container'>
+                <ul className="flex justify-between items-center w-full">
+                    <div className='flex space-x-4 items-center '>
 
-                    <Image
-                        className="light:invert"
-                        src="/logo.svg"
-                        alt="Next.js logo"
-                        width={120}
-                        height={38}
-                        priority
-                    />
+                        <Link href={'/'}>
+                            <Image
+                                className="light:invert"
+                                src="/logo.svg"
+                                alt="Next.js logo"
+                                width={120}
+                                height={38}
+                                priority
+                            />
+                        </Link>
 
 
-                </div>
-                <div>
-                    <li>
-                        <MiniCart />
-                    </li>
-                </div>
-            </ul>
+                    </div>
+                    <div>
+                        <li>
+                            <MiniCart />
+                        </li>
+                    </div>
+                </ul>
+            </div>
         </nav>
     );
 };

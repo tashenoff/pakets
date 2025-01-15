@@ -1,4 +1,6 @@
+// components/ProductInfo.js
 import React from 'react';
+import DownloadImageBlock from './DownloadImageBlock';
 
 const ProductInfo = () => {
   const product = {
@@ -22,7 +24,7 @@ const ProductInfo = () => {
   };
 
   return (
-    <div className="p-6">
+    <div className="container py-6">
       <div className="flex flex-col md:flex-row gap-6 items-start">
         <div className="flex-1 space-y-4">
           <div className="text-2xl font-bold">Пакеты на заказ</div>
@@ -41,52 +43,12 @@ const ProductInfo = () => {
 
       <h2 className="mt-8 text-xl font-semibold mb-5">Прайс-лист на пакеты с логотипом</h2>
 
-      <img src='/price.jpg' className="w-full" alt="logo" />
-
-
-      {/* <table className="w-full mt-4 border border-gray-200 text-gray-700 text-sm">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="py-2 px-4 text-left">Тираж</th>
-            <th className="py-2 px-4 text-left">1 цв., тг</th>
-            <th className="py-2 px-4 text-left">2 цв., тг</th>
-            <th className="py-2 px-4 text-left">3 цв., тг</th>
-            <th className="py-2 px-4 text-left">4 цв., тг</th>
-          </tr>
-        </thead>
-        <tbody>
-          {product.priceList.map((row, index) => (
-            <tr key={index} className="odd:bg-white even:bg-gray-50">
-              <td className="py-2 px-4 border-t">{row.tirage}</td>
-              {row.prices.map((price, i) => (
-                <td key={i} className="py-2 px-4 border-t">{price}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table> */}
-
-      {/* <h2 className="mt-8 text-xl font-semibold">Таблица цветов</h2> */}
-      {/* <table className="w-full text-center mt-4">
-        <tbody>
-          {[
-            ['https://www.logo-pak.ru/images/clrs/20.png', 'https://www.logo-pak.ru/images/clrs/12.png', 'https://www.logo-pak.ru/images/clrs/16.png', 'https://www.logo-pak.ru/images/clrs/13.png'],
-            ['https://www.logo-pak.ru/images/clrs/18.png', 'https://www.logo-pak.ru/images/clrs/10.png', 'https://www.logo-pak.ru/images/clrs/3.png', 'https://www.logo-pak.ru/images/clrs/8.png'],
-            ['https://www.logo-pak.ru/images/clrs/4.png', 'https://www.logo-pak.ru/images/clrs/11.png', 'https://www.logo-pak.ru/images/clrs/6.png', 'https://www.logo-pak.ru/images/clrs/7.png'],
-            ['https://www.logo-pak.ru/images/clrs/1.png', 'https://www.logo-pak.ru/images/clrs/5.png', 'https://www.logo-pak.ru/images/clrs/15.png', 'https://www.logo-pak.ru/images/clrs/17.png'],
-            ['https://www.logo-pak.ru/images/clrs/2.png', 'https://www.logo-pak.ru/images/clrs/9.png', 'https://www.logo-pak.ru/images/clrs/14.png', 'https://www.logo-pak.ru/images/clrs/19.png'],
-          ].map((row, rowIndex) => (
-            <tr key={rowIndex} className="">
-              {row.map((src, colIndex) => (
-                <td key={colIndex} className="p-2">
-                  <img src={src} alt={`Color ${rowIndex * 4 + colIndex + 1}`} className="w-full h-16 mx-auto object-contain" />
-
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table> */}
+      {/* Компонент с изображением и кнопкой скачивания */}
+      <DownloadImageBlock
+        imageUrl="/price.jpg"
+        fileName="price-list.jpg"
+        description="Скачайте прайс-лист на пакеты с логотипом для более детальной информации."
+      />
     </div>
   );
 };

@@ -77,7 +77,7 @@ const PackagePage = ({ product }) => {
     };
 
     return (
-        <div className="card bg-base-200 shadow-xl">
+        <div className="card  shadow-xl">
             <figure className='bg-white'>
                 <Link href={`/catalog/${product.id}`}>
                     <img
@@ -88,7 +88,7 @@ const PackagePage = ({ product }) => {
                 </Link>
             </figure>
             <div className="card-body">
-                <h2 className="card-title">{product.translatedName}</h2>
+                <h2 className="card-sm">{product.translatedName}</h2>
 
                 <p>{product.color}</p>
 

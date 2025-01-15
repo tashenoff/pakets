@@ -22,29 +22,39 @@ const Slider = () => {
         <SwiperSlide>
           <div className="relative w-full h-full">
             <img src="/slider/1.jpg" alt="Slide 1" className="w-full h-full object-cover" />
+            {/* Маска */}
+            <div className="absolute inset-0 bg-black/50"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <h2 className="text-white text-2xl  text-center md:text-4xl font-bold">Упаковка для маркетплейсов<br/> и пищевых продуктов</h2>
+              <h2 className="text-white text-2xl text-center md:text-4xl font-bold">
+                Упаковка для маркетплейсов<br /> и пищевых продуктов
+              </h2>
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative w-full h-full">
             <img src="/slider/2.jpg" alt="Slide 2" className="w-full h-full object-cover" />
+            {/* Маска */}
+            <div className="absolute inset-0 bg-black/50"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <h2 className="text-white text-2xl  text-center md:text-4xl font-bold">Курьерские пакеты <br/>с доставкой по Казахстану 
-</h2>
+              <h2 className="text-white text-2xl text-center md:text-4xl font-bold">
+                Курьерские пакеты <br />с доставкой по Казахстану
+              </h2>
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative w-full h-full">
             <img src="/slider/3.jpg" alt="Slide 3" className="w-full h-full object-cover" />
+            {/* Маска */}
+            <div className="absolute inset-0 bg-black/50"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <h2 className="text-white text-2xl text-center  md:text-4xl font-bold">Пакеты<br/> с логотипом под заказ</h2>
+              <h2 className="text-white text-2xl text-center md:text-4xl font-bold">
+                Пакеты<br /> с логотипом под заказ
+              </h2>
             </div>
           </div>
         </SwiperSlide>
-        {/* Добавьте столько слайдов, сколько нужно */}
       </Swiper>
     </div>
   );

@@ -67,44 +67,24 @@ const NavbarMini = () => {
             className={`${isFixed ? 'fixed top-0 left-0 w-full z-50 bg-base-300 shadow-md' : 'bg-base-300'
                 } px-5 py-4 transition-all duration-300`}
         >
-            <div className='flex justify-between items-center w-full'>
-                {/* Hamburger Menu for Mobile */}
-                <div className='lg:hidden flex justify-between w-full items-center'>
-                    <button
-                        ref={buttonRef}
-                        onClick={toggleMenu}
-                        className='p-2 rounded-md hover:bg-base-200 focus:outline-none focus:ring-2 focus:ring-base-100'
-                    >
-                        {isMenuOpen ? (
-                            <span className='block w-6 h-6'>✖</span>
-                        ) : (
-                            <span className='block w-6 h-6'>☰</span>
-                        )}
-                    </button>
+            <div className='container'>
+                <div className='flex justify-between items-center w-full'>
+                    {/* Hamburger Menu for Mobile */}
+                    <div className='lg:hidden flex justify-between w-full items-center'>
+                        <button
+                            ref={buttonRef}
+                            onClick={toggleMenu}
+                            className='p-2 rounded-md hover:bg-base-200 focus:outline-none focus:ring-2 focus:ring-base-100'
+                        >
+                            {isMenuOpen ? (
+                                <span className='block w-6 h-6'>✖</span>
+                            ) : (
+                                <span className='block w-6 h-6'>☰</span>
+                            )}
+                        </button>
 
-                    <span className='text-sm'>8(701)789-65-56</span>
+                        <span className='text-sm'>8(701)789-65-56</span>
 
-                    <Button
-                        label="Написать в WhatsApp"
-                        onClick={handleWhatsAppClick}
-                        variant="success"
-                        size="sm"
-                    />
-                </div>
-
-                {/* Navigation Links (Hidden on Mobile) */}
-                <ul className='hidden lg:flex space-x-5'>
-                    {menuItems.map((item) => (
-                        <li key={item.href}>
-                            <Link href={item.href}>{item.label}</Link>
-                        </li>
-                    ))}
-                </ul>
-
-                {/* Right Section */}
-                <div className='hidden lg:flex items-center space-x-5'>
-                    <span>По всем вопросам: 8(701)789-65-56</span>
-                    <div className='mr-2'>
                         <Button
                             label="Написать в WhatsApp"
                             onClick={handleWhatsAppClick}
@@ -112,27 +92,49 @@ const NavbarMini = () => {
                             size="sm"
                         />
                     </div>
-                </div>
-            </div>
 
-            {/* Dropdown Menu for Mobile */}
-            {isMenuOpen && (
-                <div ref={menuRef} className='mt-4 space-y-3 lg:hidden'>
-                    <ul className='flex flex-col space-y-3'>
+                    {/* Navigation Links (Hidden on Mobile) */}
+                    <ul className='hidden lg:flex space-x-5'>
                         {menuItems.map((item) => (
-                            <li
-                                key={item.href}
-                                className='flex items-center border-b border-white/20 space-x-3'
-                            >
-                                <span className='text-lg'>{item.icon}</span>
-                                <Link href={item.href} onClick={closeMenu}>
-                                    {item.label}
-                                </Link>
+                            <li key={item.href}>
+                                <Link href={item.href}>{item.label}</Link>
                             </li>
                         ))}
                     </ul>
+
+                    {/* Right Section */}
+                    <div className='hidden lg:flex items-center space-x-5'>
+                        <span>По всем вопросам: 8(701)789-65-56</span>
+                        <div className='mr-2'>
+                            <Button
+                                label="Написать в WhatsApp"
+                                onClick={handleWhatsAppClick}
+                                variant="success"
+                                size="sm"
+                            />
+                        </div>
+                    </div>
                 </div>
-            )}
+
+                {/* Dropdown Menu for Mobile */}
+                {isMenuOpen && (
+                    <div ref={menuRef} className='mt-4 space-y-3 lg:hidden'>
+                        <ul className='flex flex-col space-y-3'>
+                            {menuItems.map((item) => (
+                                <li
+                                    key={item.href}
+                                    className='flex items-center border-b border-white/20 space-x-3'
+                                >
+                                    <span className='text-lg'>{item.icon}</span>
+                                    <Link href={item.href} onClick={closeMenu}>
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+            </div>
         </nav>
     );
 };

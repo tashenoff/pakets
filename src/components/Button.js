@@ -8,9 +8,10 @@ const Button = ({ label, onClick, variant = "primary", size = "md", disabled = f
       accent: "btn-accent",
       ghost: "btn-ghost",
       link: "btn-link",
-      success: "btn-success",
+      success: "btn-success text-white",
       warning: "btn-warning",
       error: "btn-error",
+      
     };
   
     const sizeClasses = {
