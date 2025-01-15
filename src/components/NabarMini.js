@@ -56,6 +56,7 @@ const NavbarMini = () => {
     }, []);
 
     const menuItems = [
+        { label: 'Главная', href: '/', icon: '🏠' },
         { label: 'Каталог', href: '/catalog', icon: '📚' },
         { label: 'О нас', href: '/about', icon: 'ℹ️' },
         { label: 'Пакеты под заказ', href: '/packz', icon: '📦' },
@@ -64,7 +65,7 @@ const NavbarMini = () => {
 
     return (
         <nav
-            className={`${isFixed ? 'fixed top-0 left-0 w-full z-50 bg-base-300 shadow-md' : 'bg-base-300'
+            className={`${isFixed ? 'sticky top-0 left-0 w-full z-50 bg-base-300 shadow-md' : 'bg-base-300'
                 } px-5 py-4 transition-all duration-300`}
         >
             <div className='container'>
@@ -88,7 +89,7 @@ const NavbarMini = () => {
                         <Button
                             label="Написать в WhatsApp"
                             onClick={handleWhatsAppClick}
-                            variant="success"
+                            variant="accent"
                             size="sm"
                         />
                     </div>
@@ -109,7 +110,7 @@ const NavbarMini = () => {
                             <Button
                                 label="Написать в WhatsApp"
                                 onClick={handleWhatsAppClick}
-                                variant="success"
+                                variant="accent"
                                 size="sm"
                             />
                         </div>

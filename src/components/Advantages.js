@@ -80,7 +80,7 @@ const AdvantageCard = ({ value, label, isPercentage, animate }) => {
                 {currentValue}
                 {isPercentage && "%"}
             </span>
-            <span className="text-sm font-medium text-secondary">{label}</span>
+            <span className="text-sm font-medium text-white">{label}</span>
         </div>
     );
 };

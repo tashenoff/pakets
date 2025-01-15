@@ -1,5 +1,5 @@
 // src/components/Button.js
-const Button = ({ label, onClick, variant = "primary", size = "md", disabled = false }) => {
+const Button = ({ label, onClick, variant = "accent", size = "md", disabled = false }) => {
     const baseClasses = "btn focus:outline-none transition-all duration-200";
   
     const variantClasses = {

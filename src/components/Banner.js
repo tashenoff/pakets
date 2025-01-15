@@ -45,7 +45,7 @@ const Banner = ({
                     {/* Статичная кнопка */}
                     {buttonText && (
                         <button
-                            className="btn btn-primary"
+                            className="btn btn-accent"
                             onClick={handleWhatsAppClick}
                         >
                             {buttonText}
