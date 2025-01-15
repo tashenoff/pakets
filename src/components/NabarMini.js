@@ -1,7 +1,5 @@
-// src/components/NavbarMini.js
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-// import LanguageSwitcher from './LanguageSwitcher';
 import Button from './Button';
 
 const handleWhatsAppClick = () => {
@@ -12,12 +10,34 @@ const handleWhatsAppClick = () => {
 const NavbarMini = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isFixed, setIsFixed] = useState(false);
-
-
+    const menuRef = useRef(null); // Реф для мобильного меню
+    const buttonRef = useRef(null); // Реф для кнопки крестика/гамбургера
 
     const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
+        setIsMenuOpen((prevState) => !prevState);
     };
+
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    };
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                menuRef.current &&
+                !menuRef.current.contains(event.target) &&
+                buttonRef.current &&
+                !buttonRef.current.contains(event.target)
+            ) {
+                closeMenu(); // Закрыть меню, если клик вне меню и кнопки
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,6 +55,13 @@ const NavbarMini = () => {
         };
     }, []);
 
+    const menuItems = [
+        { label: 'Каталог', href: '/catalog', icon: '📚' },
+        { label: 'О нас', href: '/about', icon: 'ℹ️' },
+        { label: 'Пакеты под заказ', href: '/packz', icon: '📦' },
+        { label: 'Контакты', href: '/contact', icon: '☎️' },
+    ];
+
     return (
         <nav
             className={`${isFixed ? 'fixed top-0 left-0 w-full z-50 bg-base-300 shadow-md' : 'bg-base-300'
@@ -44,17 +71,18 @@ const NavbarMini = () => {
                 {/* Hamburger Menu for Mobile */}
                 <div className='lg:hidden flex justify-between w-full items-center'>
                     <button
+                        ref={buttonRef}
                         onClick={toggleMenu}
                         className='p-2 rounded-md hover:bg-base-200 focus:outline-none focus:ring-2 focus:ring-base-100'
                     >
                         {isMenuOpen ? (
-                            <span className='block w-6 h-6 bg-gray-600'>✖</span>
+                            <span className='block w-6 h-6'>✖</span>
                         ) : (
-                            <span className='block w-6 h-6 bg-gray-600'>☰</span>
+                            <span className='block w-6 h-6'>☰</span>
                         )}
                     </button>
 
-                    <span>8(701)789-65-56</span>
+                    <span className='text-sm'>8(701)789-65-56</span>
 
                     <Button
                         label="Написать в WhatsApp"
@@ -62,65 +90,47 @@ const NavbarMini = () => {
                         variant="success"
                         size="sm"
                     />
-
-
                 </div>
 
                 {/* Navigation Links (Hidden on Mobile) */}
                 <ul className='hidden lg:flex space-x-5'>
-                    <li>
-                        <Link href='/'>Главная</Link>
-                    </li>
-                    <li>
-                        <Link href='/catalog'>Каталог</Link>
-                    </li>
-                    <li>
-                        <Link href='/about'>О нас</Link>
-                    </li>
-                    <li>
-                        <Link href='/packz'>Пакеты под заказ</Link>
-                    </li>
-                    <li>
-                        <Link href='/contact'>Контакты</Link>
-                    </li>
+                    {menuItems.map((item) => (
+                        <li key={item.href}>
+                            <Link href={item.href}>{item.label}</Link>
+                        </li>
+                    ))}
                 </ul>
 
                 {/* Right Section */}
                 <div className='hidden lg:flex items-center space-x-5'>
                     <span>По всем вопросам: 8(701)789-65-56</span>
                     <div className='mr-2'>
-                    <Button
-                        label="Написать в WhatsApp"
-                        onClick={handleWhatsAppClick}
-                        variant="success"
-                        size="sm"
-                    />
+                        <Button
+                            label="Написать в WhatsApp"
+                            onClick={handleWhatsAppClick}
+                            variant="success"
+                            size="sm"
+                        />
                     </div>
-                    {/* <LanguageSwitcher /> */}
                 </div>
             </div>
 
             {/* Dropdown Menu for Mobile */}
             {isMenuOpen && (
-                <div className='mt-4 space-y-3 lg:hidden'>
+                <div ref={menuRef} className='mt-4 space-y-3 lg:hidden'>
                     <ul className='flex flex-col space-y-3'>
-                        <li>
-                            <Link href='/catalog'>Каталог</Link>
-                        </li>
-                        <li>
-                            <Link href='/about'>О нас</Link>
-                        </li>
-                        <li>
-                            <Link href='/packz'>Пакеты под заказ</Link>
-                        </li>
-                        <li>
-                            <Link href='/contact'>Контакты</Link>
-                        </li>
+                        {menuItems.map((item) => (
+                            <li
+                                key={item.href}
+                                className='flex items-center border-b border-white/20 space-x-3'
+                            >
+                                <span className='text-lg'>{item.icon}</span>
+                                <Link href={item.href} onClick={closeMenu}>
+                                    {item.label}
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
-                    <div className='mt-3 flex flex-col space-y-3'>
-
-                        {/* <LanguageSwitcher /> */}
-                    </div>
                 </div>
             )}
         </nav>
