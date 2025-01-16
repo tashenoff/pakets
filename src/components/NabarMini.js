@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Button from './Button';
+import { FaHome, FaBook, FaInfoCircle, FaBox, FaPhoneAlt } from 'react-icons/fa'; // Импортируем иконки
+
 
 const handleWhatsAppClick = () => {
     const whatsappNumber = "+77017896556"; // Замените на нужный номер
@@ -56,11 +58,11 @@ const NavbarMini = () => {
     }, []);
 
     const menuItems = [
-        { label: 'Главная', href: '/', icon: '🏠' },
-        { label: 'Каталог', href: '/catalog', icon: '📚' },
-        { label: 'О нас', href: '/about', icon: 'ℹ️' },
-        { label: 'Пакеты под заказ', href: '/packz', icon: '📦' },
-        { label: 'Контакты', href: '/contact', icon: '☎️' },
+        { label: 'Главная', href: '/', icon: <FaHome size={20} /> }, // Используем иконку FaHome
+        { label: 'Каталог', href: '/catalog', icon: <FaBook size={20} /> }, // Используем иконку FaBook
+        { label: 'О нас', href: '/about', icon: <FaInfoCircle size={20} /> }, // Используем иконку FaInfoCircle
+        { label: 'Пакеты под заказ', href: '/packz', icon: <FaBox size={20} /> }, // Используем иконку FaBox
+        { label: 'Контакты', href: '/contact', icon: <FaPhoneAlt size={20} /> }, // Используем иконку FaPhoneAlt
     ];
 
     return (
@@ -75,7 +77,7 @@ const NavbarMini = () => {
                         <button
                             ref={buttonRef}
                             onClick={toggleMenu}
-                            className='p-2 rounded-md hover:bg-base-200 focus:outline-none focus:ring-2 focus:ring-base-100'
+                            className='p-2 rounded-md focus:outline-none focus:ring-2'
                         >
                             {isMenuOpen ? (
                                 <span className='block w-6 h-6'>✖</span>

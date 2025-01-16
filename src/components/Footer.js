@@ -4,10 +4,10 @@ const Footer = () => {
     return (
         <div className="bg-blue-500 text-white ">
             <div className="container">
-                <div className=' flex justify-between items-center py-5 px-10'>
+                <div className=' flex lg:flex-row flex-col justify-between items-center py-5 px-10'>
                     По всем вопросам: 8(701)789-65-56
-                    <div className='flex items-center'>
-                        <div className='mr-2'>
+                    <div className='flex lg:flex-row flex-col items-center'>
+                        <div className='mr-2 my-5 lg:my-0'>
                             Все права защищены © 2025
                         </div>
                         <SocialShare />
