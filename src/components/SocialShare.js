@@ -1,5 +1,5 @@
-import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'next-share';
-import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa'; // Импортируем иконки из react-icons
+import { FacebookShareButton, TwitterShareButton, LinkedinShareButton, WhatsappShareButton } from 'next-share';
+import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp } from 'react-icons/fa'; // Импортируем иконки из react-icons
 
 const SocialShare = () => {
   const url = "https://paketi.kz";
@@ -17,6 +17,10 @@ const SocialShare = () => {
       <LinkedinShareButton url={url}>
         <FaLinkedin size={22} className="text-white" />
       </LinkedinShareButton>
+
+      <WhatsappShareButton url={url}>
+        <FaWhatsapp size={22} className="text-white" />
+      </WhatsappShareButton>
     </div>
   );
 };
