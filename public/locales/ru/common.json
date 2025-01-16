@@ -1,6 +1,7 @@
 {
   "catalog": {
     "title": "Детали продукта",
+    "currency": "тенге",
     "dimensions": "Габариты",
     "color": "Цвет",
     "stock": "В наличии",

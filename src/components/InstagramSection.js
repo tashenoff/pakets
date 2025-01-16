@@ -1,5 +1,7 @@
 import React from "react";
 import Button from "./Button";
+import Link from "next/link";
+
 
 const InstagramSection = () => {
     const images = [
@@ -18,7 +20,10 @@ const InstagramSection = () => {
 
                         <h2 className="text-center ml-5 text-2xl font-bold">Наш Instagram</h2>
                     </div>
-                    <Button variant='accent' label={'Посмотреть все'} />
+                    <Link className="bg-red-500 px-5 py-2 text-white rounded-lg" href="/" passHref>
+                          Посмотреть все
+                       
+                    </Link>
                 </div>
             </div>
             <div className="container">

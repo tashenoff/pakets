@@ -11,6 +11,7 @@ const Button = ({ label, onClick, variant = "accent", size = "md", disabled = fa
       success: "btn-success text-white",
       warning: "btn-warning",
       error: "btn-error",
+      red: "btn-red",
       
     };
   
