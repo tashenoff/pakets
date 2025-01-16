@@ -95,7 +95,7 @@ const NavbarMini = () => {
                     </div>
 
                     {/* Navigation Links (Hidden on Mobile) */}
-                    <ul className='hidden lg:flex space-x-5'>
+                    <ul className='hidden uppercase text-[12px] font-bold lg:flex space-x-5'>
                         {menuItems.map((item) => (
                             <li key={item.href}>
                                 <Link href={item.href}>{item.label}</Link>

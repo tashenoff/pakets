@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaQuestionCircle } from 'react-icons/fa'; // Импортируем иконку
 
 const faqData = [
     {
@@ -26,7 +27,10 @@ const faqData = [
 const Faq = () => {
     return (
         <div className="container mx-auto py-20">
-            <h2 className="text-2xl text-blue-500 font-bold mb-4">Часто задаваемые вопросы</h2>
+            <h2 className="text-2xl text-blue-500 font-bold mb-4 flex items-center">
+                <FaQuestionCircle size={24} className="mr-2" /> {/* Иконка перед заголовком */}
+                Часто задаваемые вопросы
+            </h2>
             <div className="accordion">
                 {faqData.map((item, index) => (
                     <div key={index} className="collapse collapse-arrow bg-blue-500 my-5 text-white">

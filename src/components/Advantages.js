@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "next-i18next";
+import { FaUsers, FaClock, FaTrophy, FaMoneyBillWave } from 'react-icons/fa'; // Импортируем иконки
 
 const Advantages = () => {
     const { t } = useTranslation("common"); // Указываем namespace "common"
 
     const advantages = [
-        { value: 1000, label: t("advantages.clients") },
-        { value: 27, label: t("advantages.years") },
-        { value: 100, label: t("advantages.quality"), isPercentage: true },
-        { value: 90, label: t("advantages.cheaper"), isPercentage: true },
+        { value: 1000, label: t("advantages.clients"), icon: <FaUsers size={32} /> },
+        { value: 27, label: t("advantages.years"), icon: <FaClock size={32} /> },
+        { value: 100, label: t("advantages.quality"), isPercentage: true, icon: <FaTrophy size={32} /> },
+        { value: 90, label: t("advantages.cheaper"), isPercentage: true, icon: <FaMoneyBillWave size={32} /> },
     ];
 
     const [visible, setVisible] = useState(false);
@@ -44,6 +45,7 @@ const Advantages = () => {
                         label={advantage.label}
                         isPercentage={advantage.isPercentage}
                         animate={visible}
+                        icon={advantage.icon}
                     />
                 ))}
             </div>
@@ -51,7 +53,7 @@ const Advantages = () => {
     );
 };
 
-const AdvantageCard = ({ value, label, isPercentage, animate }) => {
+const AdvantageCard = ({ value, label, isPercentage, animate, icon }) => {
     const [currentValue, setCurrentValue] = useState(0);
 
     useEffect(() => {
@@ -75,12 +77,13 @@ const AdvantageCard = ({ value, label, isPercentage, animate }) => {
     }, [animate, value]);
 
     return (
-        <div className="flex flex-col items-center justify-center text-center p-4 rounded-lg shadow-md bg-blue-500">
-            <span className="text-4xl font-bold text-white">
+        <div className="flex flex-col items-center justify-center text-center p-4 rounded-lg border border-blue-500/20 ">
+            <div className="mb-4 text-blue-500">{icon}</div> {/* Иконка */}
+            <span className="text-4xl font-bold text-blue-500 ">
                 {currentValue}
                 {isPercentage && "%"}
             </span>
-            <span className="text-sm font-medium text-white">{label}</span>
+            <span className="text-sm font-medium ">{label}</span>
         </div>
     );
 };

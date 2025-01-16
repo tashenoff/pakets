@@ -13,7 +13,7 @@ export default function About() {
             <VideoWithText />
 
             <div className="container mx-auto px-5 py-20">
-                <h1 className="text-2xl text-center font-bold">
+                <h1 className="text-2xl text-blue-500 uppercase text-center font-bold">
                     О заводе
 
                 </h1>

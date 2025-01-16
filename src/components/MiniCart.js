@@ -2,6 +2,7 @@ import { useCart } from '../../context/CartContext';
 import { useTranslation } from 'next-i18next';
 import CartDropdown from './CartDropdown';
 import { useEffect, useState } from 'react';
+import { FaShoppingCart } from 'react-icons/fa'; // Импортируем иконку корзины
 
 const MiniCart = () => {
     const { cart } = useCart(); // Получаем корзину из контекста
@@ -45,9 +46,11 @@ const MiniCart = () => {
                         onClick={toggleDrawer}
                         className="flex items-center p-2  rounded-full"
                     >
-                        <span className="mr-2">🛒</span>
+                        <span className="mr-2 bg-blue-500 rounded-full p-2 text-white">
+                            <FaShoppingCart size={14} />
+                        </span>
                         <div className="flex flex-col text-left">
-                            <span className="text-sm font-semibold">{t('Ваша корзина')}</span>
+                            <span className="text-sm text-blue-500 font-semibold">{t('Ваша корзина')}</span>
                             <span className="text-xs">{t('Товары')}: {totalItems}</span>
                             <span className="text-xs">{t('Итог')}: {totalPrice} ₸</span>
                         </div>
