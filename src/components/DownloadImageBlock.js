@@ -3,7 +3,7 @@ import React from 'react';
 
 const DownloadImageBlock = ({ imageUrl, fileName, description }) => {
     return (
-        <div className="grid bg-primary via-primary bg-gradient-to-r from-primary to-white text-white lg:grid-cols-12 p-4 rounded-md shadow-md">
+        <div className="grid bg-blue-500 via-blue-500 bg-gradient-to-r from-blue-500 to-white text-white lg:grid-cols-12 p-4 rounded-md shadow-md">
 
             <div className="col-span-10">
                 <div className='grid lg:grid-cols-12'>

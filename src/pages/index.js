@@ -3,6 +3,8 @@ import Advantages from "../components/Advantages";
 import InstagramSection from "../components/InstagramSection";
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Faq from "../components/faq";
+import PolyethyleneBags from "../components/PolyethyleneBags";
 import Slider from '../components/Slider';
 export default function Home() {
     const { t } = useTranslation('common'); 
@@ -12,6 +14,8 @@ export default function Home() {
             <Slider />
             <Advantages />
             <InstagramSection />
+            <Faq />
+            <PolyethyleneBags />
             <Banner
                 backgroundImage="/footer.png"
                 title={t('home_banner.title2')}

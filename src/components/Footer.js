@@ -2,7 +2,7 @@
 
 const Footer = () => {
     return (
-        <div className="bg-base-300 ">
+        <div className="bg-blue-500 text-white ">
             <div className="container">
                 <div className=' flex justify-between items-center py-5 px-10'>
                     По всем вопросам: 8(701)789-65-56

@@ -5,7 +5,7 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}", // Путь для компонентов
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}", // Путь для app (если используется)
   ],
-  darkMode: 'class', // Включение классовой тёмной темы
+  darkMode: false, // Отключение тёмного режима
   theme: {
     container: {
       center: true, // Центрирование контейнера
@@ -28,7 +28,7 @@ export default {
     require('daisyui'), // Подключение DaisyUI
   ],
   daisyui: {
-    themes: ["light", "dark"], // Поддержка как светлой, так и тёмной темы
+    themes: ["light"], // Только светлая тема
     base: true,
     styled: true,
     utils: true,

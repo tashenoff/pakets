@@ -3,7 +3,7 @@ const Button = ({ label, onClick, variant = "accent", size = "md", disabled = fa
     const baseClasses = "btn focus:outline-none transition-all duration-200";
   
     const variantClasses = {
-      primary: "btn-primary",
+      primary: "btn-blue",
       secondary: "btn-secondary",
       accent: "btn-accent",
       ghost: "btn-ghost",

@@ -65,7 +65,7 @@ const NavbarMini = () => {
 
     return (
         <nav
-            className={`${isFixed ? 'sticky top-0 left-0 w-full z-50 bg-base-300 shadow-md' : 'bg-base-300'
+            className={`${isFixed ? 'sticky top-0 left-0 w-full z-50 bg-blue-500 text-white shadow-md' : 'bg-blue-500 text-white '
                 } px-5 py-4 transition-all duration-300`}
         >
             <div className='container'>

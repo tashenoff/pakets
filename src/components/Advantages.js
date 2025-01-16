@@ -76,11 +76,11 @@ const AdvantageCard = ({ value, label, isPercentage, animate }) => {
 
     return (
         <div className="flex flex-col items-center justify-center text-center p-4 rounded-lg shadow-md bg-base-200">
-            <span className="text-4xl font-bold text-primary">
+            <span className="text-4xl font-bold text-blue-500">
                 {currentValue}
                 {isPercentage && "%"}
             </span>
-            <span className="text-sm font-medium text-white">{label}</span>
+            <span className="text-sm font-medium text-blue-500">{label}</span>
         </div>
     );
 };

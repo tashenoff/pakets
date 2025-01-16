@@ -88,7 +88,7 @@ const PackagePage = ({ product }) => {
                 </Link>
             </figure>
             <div className="card-body">
-                <h2 className="card-sm">{product.translatedName}</h2>
+                <h2 className="card-sm text-blue-500 font-bold">{product.translatedName}</h2>
 
                 <p>{product.color}</p>
 
@@ -148,7 +148,7 @@ const PackagePage = ({ product }) => {
                 <div className="card-actions mt-4">
                     <button
                         onClick={handleAddToCart}
-                        className="btn btn-primary w-full"
+                        className="btn bg-blue-500 text-white w-full"
                     >
                         {t('catalog.add_to_cart')}
                     </button>

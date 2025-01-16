@@ -12,19 +12,19 @@ export default function Contact() {
             <div className="container mx-auto px-5">
                 <div className="py-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                     <div className="flex items-center space-x-2">
-                        <MapIcon className="h-5 w-5 text-primary" />
+                        <MapIcon className="h-5 w-5 text-blue-500" />
                         <p>Казахстан, г. Астана, ул. Аксай 11</p>
                     </div>
                     <div className="flex items-center space-x-2">
-                        <PhoneIcon className="h-5 w-5 text-primary" />
+                        <PhoneIcon className="h-5 w-5 text-blue-500" />
                         <p>тел.: +7 707 040 21 21</p>
                     </div>
                     <div className="flex items-center space-x-2">
-                        <InboxIcon className="h-5 w-5 text-primary" />
+                        <InboxIcon className="h-5 w-5 text-blue-500" />
                         <p>e-mail: salespaketi@gmail.com</p>
                     </div>
                     <div className="flex items-center space-x-2">
-                        <CubeIcon className="h-5 w-5 text-primary" />
+                        <CubeIcon className="h-5 w-5 text-blue-500" />
                         <p>ИП "Paketikz" ИИН 911122350042</p>
                     </div>
                 </div>

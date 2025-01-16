@@ -43,7 +43,7 @@ const MiniCart = () => {
                 <div className="drawer-content">
                     <button
                         onClick={toggleDrawer}
-                        className="flex items-center p-2 text-white rounded-full"
+                        className="flex items-center p-2  rounded-full"
                     >
                         <span className="mr-2">🛒</span>
                         <div className="flex flex-col text-left">

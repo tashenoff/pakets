@@ -110,7 +110,7 @@ const PackagePage = ({ packageData }) => {
                     </div>
 
                     <div className="w-full bg-base-200 rounded-lg p-5">
-                        <h1 className="text-2xl font-bold">{packageData.translatedName}</h1>
+                        <h1 className="text-2xl  font-bold">{packageData.translatedName}</h1>
                         <p className="my-4">{packageData.description}</p>
                         <p className="my-4 flex justify-between w-full">
                             <span>{t('catalog.dimensions')}:</span> {selectedSize ? selectedSize.size : '-'}
@@ -181,7 +181,7 @@ const PackagePage = ({ packageData }) => {
                                     <Button
                                         label={t('catalog.add_to_cart')}
                                         onClick={handleAddToCart}
-                                        variant="secondary"
+                                        variant="accent"
                                         size="md"
                                     />
                                 </div>
