@@ -15,7 +15,7 @@ const Navigation = () => {
                                 className="light:invert"
                                 src="/logo.svg"
                                 alt="Next.js logo"
-                                width={120}
+                                width={160}
                                 height={38}
                                 priority
                             />

@@ -1,5 +1,5 @@
 // src/components/Footer.js
-
+import SocialShare from "./SocialShare";
 const Footer = () => {
     return (
         <div className="bg-blue-500 text-white ">
@@ -10,7 +10,7 @@ const Footer = () => {
                         <div className='mr-2'>
                             Все права защищены © 2025
                         </div>
-
+                        <SocialShare />
                     </div>
                 </div>
             </div>
