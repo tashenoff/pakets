@@ -77,13 +77,13 @@ const PackagePage = ({ product }) => {
     };
 
     return (
-        <div className="card  shadow-xl">
-            <figure className='bg-white'>
+        <div className="card bg-white  shadow-xl">
+            <figure className='bg-gray-50'>
                 <Link href={`/catalog/${product.id}`}>
                     <img
                         src={product.imageUrl}
                         alt={product.translatedName}
-                        className="h-40 object-cover"
+                        className="h-40 w-full object-cover"
                     />
                 </Link>
             </figure>

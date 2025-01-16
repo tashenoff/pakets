@@ -68,24 +68,26 @@ const Catalog = ({ packages }) => {
         <Notification message={notificationMessage} onClose={() => setNotificationMessage(null)} />
       )}
 
-
-      <div className="container mx-auto p-4">
-        <SearchBar onSearch={handleSearch} />
-        {filteredPackages.length === 0 ? (
-          <div className="text-center">{t('catalog.no_products_found')}</div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {filteredPackages.map((pkg) => (
-              <ProductCard
-                key={pkg.id}
-                product={pkg}
-                onAddToCart={handleAddToCart}
-              />
-            ))}
-          </div>
-        )}
-      </div>
+      <section className='bg-blue-100'>
+        <div className="container mx-auto p-4">
+          <SearchBar onSearch={handleSearch} />
+          {filteredPackages.length === 0 ? (
+            <div className="text-center">{t('catalog.no_products_found')}</div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {filteredPackages.map((pkg) => (
+                <ProductCard
+                  key={pkg.id}
+                  product={pkg}
+                  onAddToCart={handleAddToCart}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      </section >
     </div>
+
   );
 };
 
