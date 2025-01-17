@@ -74,8 +74,7 @@ const Catalog = ({ packages }) => {
           {filteredPackages.length === 0 ? (
             <div className="text-center">{t('catalog.no_products_found')}</div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              {filteredPackages.map((pkg) => (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">              {filteredPackages.map((pkg) => (
                 <ProductCard
                   key={pkg.id}
                   product={pkg}

@@ -67,7 +67,9 @@ const NavbarMini = () => {
 
     return (
         <nav
-            className={`${isFixed ? 'sticky top-0 left-0 w-full z-50 bg-blue-500 text-white shadow-md' : 'bg-blue-500 text-white '
+            className={`${isFixed
+                    ? 'sticky top-0 left-0 w-full z-50 bg-animated-gradient text-white shadow-md'
+                    : 'bg-animated-gradient text-white'
                 } px-5 py-4 transition-all duration-300`}
         >
             <div className='container'>
@@ -107,7 +109,7 @@ const NavbarMini = () => {
 
                     {/* Right Section */}
                     <div className='hidden lg:flex items-center space-x-5'>
-                        <span>По всем вопросам: 8(701)789-65-56</span>
+                        <span>8(701)789-65-56</span>
                         <div className='mr-2'>
                             <Button
                                 label="Написать в WhatsApp"
