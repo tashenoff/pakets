@@ -74,7 +74,7 @@ const ProductInfo = () => {
 
 
           <div className='text-center flex flex-col items-center border'>
-            <img src='https://webpack.kz/images/custom/root-category-2.png' />
+            <img src='https://webpack.kz/images/custom/root-category-7.png' />
             <span className='uppercase text-blue-500 font-bold text-sm'>Пакеты зип лок </span>
           </div>
 
@@ -97,7 +97,7 @@ const ProductInfo = () => {
           </div>
 
           <div className='text-center flex flex-col items-center border'>
-            <img src='https://webpack.kz/images/custom/root-category-14.png' />
+            <img src='https://webpack.kz/images/custom/root-category-6.png' />
             <span className='uppercase text-blue-500 font-bold text-sm'>Пакет с клеейкой лентой
 
 
