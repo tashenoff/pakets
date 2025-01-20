@@ -50,9 +50,9 @@ const MiniCart = () => {
                             <FaShoppingCart size={14} />
                         </span>
                         <div className="flex flex-col text-left">
-                            <span className="text-sm text-blue-500 font-semibold">{t('Ваша корзина')}</span>
-                            <span className="text-xs">{t('Товары')}: {totalItems}</span>
-                            <span className="text-xs">{t('Итог')}: {totalPrice} ₸</span>
+                            <span className="text-sm text-blue-500 font-semibold">Ваша корзина</span>
+                            <span className="text-xs">товары: {totalItems}</span>
+                            <span className="text-xs">Итог: {totalPrice} ₸</span>
                         </div>
                     </button>
                 </div>

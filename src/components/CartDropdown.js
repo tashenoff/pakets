@@ -6,9 +6,9 @@ const CartDropdown = ({ cart, t }) => {
 
   return (
     <div className="p-4">
-      <h3 className="text-lg font-semibold">{t('miniCart.cart')}</h3>
+      <h3 className="text-lg font-semibold">Ваша корзина</h3>
       {cart.length === 0 ? (
-        <p className="text-center text-gray-500 mt-4">{t('miniCart.empty')}</p>
+        <p className="text-center text-gray-500 mt-4">ничего нет</p>
       ) : (
         <>
           <div className="mt-4 space-y-2">
@@ -21,14 +21,14 @@ const CartDropdown = ({ cart, t }) => {
           </div>
           <div className="mt-4 text-right">
             <p className="text-lg font-semibold">
-              {t('miniCart.total')}: {totalPrice} ₸
+              Общая сумма: {totalPrice} ₸
             </p>
           </div>
         </>
       )}
       <div className="mt-4 text-center">
         <Link href="/cart" className="w-full btn btn-accent">
-          {t('miniCart.go_to_cart')}
+        Оформить заказ
         </Link>
       </div>
     </div>
