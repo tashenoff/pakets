@@ -17,7 +17,7 @@ export default function Packz() {
 
             <Banner
                 backgroundImage="/footer.png"
-                title='Заказать консультацию'
+                title='Оставить заявку на расчет стоимости упаковки'
               
                 buttonText='связаться с нами'
                 onButtonClick={() => alert('home_banner.button2')}

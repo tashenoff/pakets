@@ -41,12 +41,99 @@ const ProductInfo = () => {
         </div>
       </div>
 
+      <div>
+        <div className="text-2xl text-blue-500 font-bold py-10">Изготовим следующие виды продукции с индивидуальными параметрами:</div>
+
+        <div className='grid lg:grid-cols-4 gap-4'>
+          <div className='text-center flex flex-col items-center border'>
+            <img src='https://webpack.kz/images/custom/root-category-2.png' />
+            <span className='uppercase text-blue-500 font-bold text-sm'>Пакеты с вырубной ручкой</span>
+          </div>
+
+          <div className='text-center flex flex-col items-center border'>
+            <img src='https://webpack.kz/images/custom/root-category-3.png' />
+            <span className='uppercase text-blue-500 font-bold text-sm'>Мешки полиэтиленовые </span>
+          </div>
+
+          <div className='text-center flex flex-col items-center border'>
+            <img src='https://webpack.kz/images/custom/root-category-4.png' />
+            <span className='uppercase text-blue-500 font-bold text-sm'>Пакет майка
+            </span>
+          </div>
+
+          <div className='text-center flex flex-col items-center border'>
+            <img src='https://webpack.kz/images/custom/root-category-6.png' />
+            <span className='uppercase text-blue-500 font-bold text-sm'>Курьерские пакеты
+            </span>
+          </div>
+
+          <div className='text-center flex flex-col items-center border'>
+            <img src='https://webpack.kz/images/custom/root-category-7.png' />
+            <span className='uppercase text-blue-500 font-bold text-sm'>Пакеты с вырубной ручкой</span>
+          </div>
+
+
+          <div className='text-center flex flex-col items-center border'>
+            <img src='https://webpack.kz/images/custom/root-category-2.png' />
+            <span className='uppercase text-blue-500 font-bold text-sm'>Пакеты зип лок </span>
+          </div>
+
+          <div className='text-center flex flex-col items-center border'>
+            <img src='https://webpack.kz/images/custom/root-category-9.png' />
+            <span className='uppercase text-blue-500 font-bold text-sm'>Пакеты дой пак
+            </span>
+          </div>
+
+          <div className='text-center flex flex-col items-center border'>
+            <img src='https://webpack.kz/images/custom/root-category-10.png' />
+            <span className='uppercase text-blue-500 font-bold text-sm'>Полипропиленовые Бопп пакеты
+            </span>
+          </div>
+          <div className='text-center flex flex-col items-center border'>
+            <img src=' https://webpack.kz/images/custom/root-category-15.png' />
+            <span className='uppercase text-blue-500 font-bold text-sm'>Вакуумные пакеты
+
+            </span>
+          </div>
+
+          <div className='text-center flex flex-col items-center border'>
+            <img src='https://webpack.kz/images/custom/root-category-14.png' />
+            <span className='uppercase text-blue-500 font-bold text-sm'>Пакет с клеейкой лентой
+
+
+            </span>
+          </div>
+
+          <div className='text-center flex flex-col items-center border'>
+            <img src='https://webpack.kz/images/custom/root-category-14.png' />
+            <span className='uppercase text-blue-500 font-bold text-sm'>Пакет с клеейкой лентой
+
+
+            </span>
+          </div>
+
+
+
+          <div className='text-center flex flex-col items-center border'>
+            <img src='https://webpack.kz/images/custom/root-category-7.png' />
+            <span className='uppercase text-blue-500 font-bold text-sm'>Пакет слайдер с бегунком
+
+
+            </span>
+          </div>
+
+
+        </div>
+
+
+      </div>
+
       <h2 className="mt-8 text-xl font-semibold mb-5">Прайс-лист на пакеты с логотипом</h2>
 
       {/* Компонент с изображением и кнопкой скачивания */}
       <DownloadImageBlock
         imageUrl="/price.jpg"
-        fileName="price-list.jpg"
+        fileName="Paketi.KZ_Logo_Price.pdf"
         description="Скачайте прайс-лист на пакеты с логотипом для более детальной информации."
       />
     </div>
