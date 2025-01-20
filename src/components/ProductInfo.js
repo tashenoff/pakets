@@ -104,15 +104,6 @@ const ProductInfo = () => {
             </span>
           </div>
 
-          <div className='text-center flex flex-col items-center border'>
-            <img src='https://webpack.kz/images/custom/root-category-14.png' />
-            <span className='uppercase text-blue-500 font-bold text-sm'>Пакет с клеейкой лентой
-
-
-            </span>
-          </div>
-
-
 
           <div className='text-center flex flex-col items-center border'>
             <img src='https://webpack.kz/images/custom/root-category-7.png' />
