@@ -43,7 +43,7 @@ const CartItem = ({ item }) => {
         {/* Кнопка удаления */}
         <button
           onClick={handleRemove}
-          className="text-white hover:text-red-800 text-sm ml-2"
+          className=" hover:text-red-800 text-sm ml-2"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

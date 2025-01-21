@@ -31,7 +31,7 @@ const Banner = ({
                 <div className="container mx-auto">
                     {/* Анимация только для заголовка */}
                     <motion.h1
-                        className="text-5xl py-5 font-bold text-shadow"
+                        className="lg:text-5xl text-[28px] py-5 font-bold text-shadow"
                         initial="hidden"
                         animate="visible"
                         variants={textAnimation}

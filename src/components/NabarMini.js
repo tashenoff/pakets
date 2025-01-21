@@ -88,7 +88,7 @@ const NavbarMini = () => {
                             )}
                         </button>
 
-                        <span className='text-sm'>8(701)789-65-56</span>
+                        <span className='text-sm'>+7(707)0402121</span>
 
                         <Button
                             label="Написать в WhatsApp"

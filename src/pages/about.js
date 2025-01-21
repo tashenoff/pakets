@@ -72,7 +72,7 @@ export default function About() {
 
             <Banner
                 backgroundImage="/footer.png"
-                title='Консультация со специалистом'
+                title='Консультация'
                 description=' Наши услуги включают разработку дизайна, утверждение эскиза, доставка, консультация клиента для подбора нужной упаковки'
                 buttonText='связаться'
                 
