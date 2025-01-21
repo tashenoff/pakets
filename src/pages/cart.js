@@ -59,7 +59,7 @@ const Cart = () => {
       `ФИО: ${fullName}\n` +
       `Телефон: ${phone}\n` +
       (additionalPhone ? `Дополнительный телефон: ${additionalPhone}\n` : '') +
-      `Email: ${email}\n` +
+      `Ваш Email: ${email}\n` +
       `Комментарий: ${comment || 'Нет'}\n` +
       `Способ доставки: ${deliveryMethods[deliveryMethodId]}\n` +
       ((deliveryMethodId === 2 || deliveryMethodId === 3) ? `Адрес доставки: ${deliveryAddress}\n` : '') +
