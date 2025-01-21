@@ -5,7 +5,7 @@ import { FaHome, FaBook, FaInfoCircle, FaBox, FaPhoneAlt } from 'react-icons/fa'
 
 
 const handleWhatsAppClick = () => {
-    const whatsappNumber = "+77017896556"; // Замените на нужный номер
+    const whatsappNumber = "+77070402121"; // Замените на нужный номер
     window.location.href = `https://wa.me/${whatsappNumber}`;
 };
 
