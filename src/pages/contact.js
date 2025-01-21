@@ -17,7 +17,7 @@ export default function Contact() {
                     </div>
                     <div className="flex items-center space-x-2">
                         <PhoneIcon className="h-5 w-5 text-blue-500" />
-                        <p>тел.: +7 707 040 21 21</p>
+                        <p>тел.: +7(707)0402121</p>
                     </div>
                     <div className="flex items-center space-x-2">
                         <InboxIcon className="h-5 w-5 text-blue-500" />

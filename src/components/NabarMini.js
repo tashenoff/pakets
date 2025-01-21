@@ -109,7 +109,7 @@ const NavbarMini = () => {
 
                     {/* Right Section */}
                     <div className='hidden lg:flex items-center space-x-5'>
-                        <span>8(701)789-65-56</span>
+                        <span>+7(707)0402121</span>
                         <div className='mr-2'>
                             <Button
                                 label="Написать в WhatsApp"
