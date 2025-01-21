@@ -1,57 +1,78 @@
-// components/Slider.js
+import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/navigation'; // Импорт стилей для навигации
-import 'swiper/css/pagination'; // Импорт стилей для пагинации
-
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import { Pagination, Navigation } from 'swiper/modules';
 
 const Slider = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Условие для определения мобильной версии
+    };
+
+    // Установка состояния при загрузке
+    handleResize();
+
+    // Добавление обработчика изменения размера
+    window.addEventListener('resize', handleResize);
+
+    // Очистка обработчика при размонтировании компонента
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div className="h-[400px] relative">
       <Swiper
-        spaceBetween={50} // Расстояние между слайдами
-        slidesPerView={1} // Количество слайдов, отображаемых одновременно
-        navigation={true} // Включение стрелок навигации
-        pagination={{ clickable: true }} // Пагинация
-        loop={true} // Зацикливание слайдов
-        autoplay={{ delay: 2500, disableOnInteraction: false }} // Автопроигрывание
-        modules={[Navigation, Pagination]} // Подключение модулей для навигации и пагинации
-        className="h-full" // Устанавливаем высоту для слайдера
+        spaceBetween={50}
+        slidesPerView={1}
+        navigation={true}
+        pagination={{ clickable: true }}
+        loop={true}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        modules={[Navigation, Pagination]}
+        className="h-full"
       >
         <SwiperSlide>
           <div className="relative w-full h-full">
-            <img src="/slider/1.jpg" alt="Slide 1" className="w-full h-full object-cover" />
-            {/* Маска */}
-            <div className="absolute inset-0 bg-black/50"></div>
+            <img
+              src={isMobile ? '/slider/1_m.jpg' : '/slider/1.jpg'}
+              alt="Slide 1"
+              className="w-full h-full object-cover"
+            />
+          
             <div className="absolute inset-0 flex items-center justify-center">
-              <h2 className="text-white text-2xl text-center md:text-4xl font-bold">
-                Упаковка для маркетплейсов<br /> и пищевых продуктов
-              </h2>
+             
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative w-full h-full">
-            <img src="/slider/2.jpg" alt="Slide 2" className="w-full h-full object-cover" />
-            {/* Маска */}
-            <div className="absolute inset-0 bg-black/50"></div>
+            <img
+              src={isMobile ? '/slider/2_m.jpg' : '/slider/2.jpg'}
+              alt="Slide 2"
+              className="w-full h-full object-cover"
+            />
+           
             <div className="absolute inset-0 flex items-center justify-center">
-              <h2 className="text-white text-2xl text-center md:text-4xl font-bold">
-                Курьерские пакеты <br />с доставкой по Казахстану
-              </h2>
+          
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative w-full h-full">
-            <img src="/slider/3.jpg" alt="Slide 3" className="w-full h-full object-cover" />
-            {/* Маска */}
-            <div className="absolute inset-0 bg-black/50"></div>
+            <img
+              src={isMobile ? '/slider/3_m.jpg' : '/slider/3.jpg'}
+              alt="Slide 3"
+              className="w-full h-full object-cover"
+            />
+           
             <div className="absolute inset-0 flex items-center justify-center">
-              <h2 className="text-white text-2xl text-center md:text-4xl font-bold">
-                Пакеты<br /> с логотипом под заказ
-              </h2>
+          
             </div>
           </div>
         </SwiperSlide>
