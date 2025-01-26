@@ -86,7 +86,7 @@ const PackagePage = ({ packageData }) => {
         };
 
         addToCart(productToCart, productToCart.quantity, selectedSize.size);
-        setNotificationMessage(`${packageData.translatedName} (${selectedSize.size}) ${t('catalog.item_added_to_cart')}`);
+        setNotificationMessage('добавлен в корзину');
     };
 
     const handleNotificationClose = () => {

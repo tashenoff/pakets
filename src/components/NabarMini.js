@@ -69,7 +69,7 @@ const NavbarMini = () => {
         <nav
             className={`${isFixed
                     ? 'sticky top-0 left-0 w-full z-50 bg-animated-gradient text-white shadow-md'
-                    : 'bg-animated-gradient text-white'
+                    : 'bg-animated-gradient lg:h-[70px] text-white'
                 } px-5 py-4 transition-all duration-300`}
         >
             <div className='container'>
@@ -91,7 +91,7 @@ const NavbarMini = () => {
                         <span className='text-sm'>+7(707)0402121</span>
 
                         <Button
-                            label="Написать в WhatsApp"
+                            label="мы в WhatsApp"
                             onClick={handleWhatsAppClick}
                             variant="accent"
                             size="sm"
@@ -112,7 +112,7 @@ const NavbarMini = () => {
                         <span>+7(707)0402121</span>
                         <div className='mr-2'>
                             <Button
-                                label="Написать в WhatsApp"
+                                label="мы в WhatsApp"
                                 onClick={handleWhatsAppClick}
                                 variant="accent"
                                 size="sm"

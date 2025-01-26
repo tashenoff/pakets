@@ -103,12 +103,12 @@ const Cart = () => {
                     className="input input-bordered input-sm w-20 mt-2"
                   />
                 </div>
-                <button
+                {/* <button
                   onClick={() => removeFromCart(item.productId)}
                   className="btn btn-sm btn-error"
                 >
                   Удалить
-                </button>
+                </button> */}
               </div>
             ))
           )}
