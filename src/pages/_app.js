@@ -5,20 +5,21 @@ import Navigation from '../components/Navigation'; // Импортируем к�
 import NavbarMini from '../components/NabarMini';
 import { CartProvider } from '../../context/CartContext';
 import Footer from '../components/Footer';
+import { Analytics } from "@vercel/analytics/react"
 function MyApp({ Component, pageProps }) {
     return (
-        
+
         <div>
 
-
+            <Analytics />
             <CartProvider>
                 <NavbarMini />
                 <Navigation /> {/* Отображаем компонент навигации */}
-                
 
 
-                    <Component {...pageProps} />
-        
+
+                <Component {...pageProps} />
+
                 <Footer />
             </CartProvider>
         </div>
