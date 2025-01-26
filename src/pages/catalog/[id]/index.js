@@ -113,18 +113,18 @@ const PackagePage = ({ packageData }) => {
                         <h1 className="text-2xl  font-bold">{packageData.translatedName}</h1>
                         <p className="my-4">{packageData.description}</p>
                         <p className="my-4 flex justify-between w-full">
-                            <span>{t('catalog.dimensions')}:</span> {selectedSize ? selectedSize.size : '-'}
+                            <span>размер:</span> {selectedSize ? selectedSize.size : '-'}
                         </p>
                         <p className="my-4 flex justify-between w-full">
-                            <span>{t('catalog.color')}:</span> {packageData.color}
+                            <span>цвет:</span> {packageData.color}
                         </p>
                         <p className="flex justify-between w-full">
-                            <span>{t('catalog.thickness')}:</span> {packageData.thickness}
+                            <span>плотность:</span> {packageData.thickness}
                         </p>
 
                         <div className="my-4">
                             <label htmlFor="size" className="block font-medium mb-2">
-                                {t('catalog.choose_size')}:
+                               выберите размер
                             </label>
                             <select
                                 id="size"
@@ -143,12 +143,12 @@ const PackagePage = ({ packageData }) => {
                         {selectedSize && selectedSize.stockQuantity === 0 ? (
                             <p className="text-red-500">{t('catalog.preorder')}</p>
                         ) : (
-                            <p>{t('catalog.stock')}: {selectedSize.stockQuantity}</p>
+                            <p>доступно: {selectedSize.stockQuantity}</p>
                         )}
 
                         {selectedSize && (
                             <p className="mt-4 text-lg uppercase">
-                                {t('catalog.price')}: {selectedSize.price} тенге за шт
+                                стоимость: {selectedSize.price} тенге за шт
                             </p>
                         )}
 
@@ -179,7 +179,7 @@ const PackagePage = ({ packageData }) => {
                                 </button>
                                 <div className="ml-5 w-full">
                                     <Button
-                                        label={t('catalog.add_to_cart')}
+                                        label='добавить в корзину'
                                         onClick={handleAddToCart}
                                         variant="accent"
                                         size="md"
