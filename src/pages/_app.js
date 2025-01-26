@@ -6,6 +6,7 @@ import NavbarMini from '../components/NabarMini';
 import { CartProvider } from '../../context/CartContext';
 import Footer from '../components/Footer';
 import { Analytics } from "@vercel/analytics/react"
+import YandexMetrika from '../components/YandexMetrika';
 function MyApp({ Component, pageProps }) {
     return (
 
@@ -19,7 +20,7 @@ function MyApp({ Component, pageProps }) {
 
 
                 <Component {...pageProps} />
-
+                <YandexMetrika />
                 <Footer />
             </CartProvider>
         </div>
