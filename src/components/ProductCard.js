@@ -73,7 +73,7 @@ const PackagePage = ({ product }) => {
             return <p className="text-red-500">{t('catalog.preorder')}</p>; // Сообщение о предзаказе
         }
 
-        return <p>{t('catalog.stock')}: {selectedSize.stockQuantity}</p>; // Количество в наличии
+        return <p>в наличии: {selectedSize.stockQuantity}</p>; // Количество в наличии
     };
 
     return (
@@ -128,7 +128,7 @@ const PackagePage = ({ product }) => {
 
                 <div className="mt-3">
                     <label htmlFor="size" className="block text-sm font-medium">
-                        {t('catalog.choose_size')}:
+                      выберите размер
                     </label>
                     <select
                         id="size"
@@ -138,7 +138,7 @@ const PackagePage = ({ product }) => {
                     >
                         {product.sizes.map((size) => (
                             <option key={size.id} value={size.id}>
-                                {size.size} - {size.price} {t('catalog.currency')}
+                                {size.size} - {size.price} 
                                 {size.stockQuantity === 0 ? ` (${t('catalog.preorder')})` : ''}
                             </option>
                         ))}
@@ -150,13 +150,13 @@ const PackagePage = ({ product }) => {
                         onClick={handleAddToCart}
                         className="btn bg-blue-500 text-white w-full"
                     >
-                        {t('catalog.add_to_cart')}
+                        добавить в корзину
                     </button>
                 </div>
             </div>
 
             {/* Уведомление */}
-            {showNotification && <Notification message={t('catalog.added_to_cart')} onClose={() => setShowNotification(false)} />}
+            {showNotification && <Notification message='добавлено' onClose={() => setShowNotification(false)} />}
         </div>
     );
 };
