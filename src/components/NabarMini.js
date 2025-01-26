@@ -68,7 +68,7 @@ const NavbarMini = () => {
     return (
         <nav
             className={`${isFixed
-                    ? 'sticky top-0 left-0 w-full z-50 bg-animated-gradient text-white shadow-md'
+                    ? 'sticky h-[70px] top-0 left-0 w-full z-50 bg-animated-gradient text-white shadow-md'
                     : 'bg-animated-gradient lg:h-[70px] text-white'
                 } px-5 py-4 transition-all duration-300`}
         >

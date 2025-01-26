@@ -156,7 +156,7 @@ const PackagePage = ({ product }) => {
             </div>
 
             {/* Уведомление */}
-            {showNotification && <Notification message='добавлено' onClose={() => setShowNotification(false)} />}
+            {showNotification && <Notification message='добавлен в корзину' onClose={() => setShowNotification(false)} />}
         </div>
     );
 };
