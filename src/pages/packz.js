@@ -12,9 +12,6 @@ export default function Packz() {
             />
 
             <ProductInfo />
-
- 
-
             <Banner
                 backgroundImage="/footer.png"
                 title='Оставить заявку на расчет стоимости упаковки'
