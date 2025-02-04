@@ -103,11 +103,17 @@ const Cart = () => {
     };
 
     try {
-      const response = await fetch('/api/proxy', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify([leadData]),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_AMOCRM_BASE_URL}/api/v4/leads`,
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_AMOCRM_ACCESS_TOKEN}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify([leadData]),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
