@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useCart } from '../../context/CartContext';
-import Link from 'next/link';
 
 const Cart = () => {
   const { cart, removeFromCart, updateQuantity, totalPrice } = useCart();
@@ -25,7 +24,7 @@ const Cart = () => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!fullName || !phone || !email || !deliveryMethodId) {
@@ -55,8 +54,7 @@ const Cart = () => {
       )
       .join('\n');
 
-    const message = `Здравствуйте!\nМой заказ:\n\n` +
-      `ФИО: ${fullName}\n` +
+    const note = `ФИО: ${fullName}\n` +
       `Телефон: ${phone}\n` +
       (additionalPhone ? `Дополнительный телефон: ${additionalPhone}\n` : '') +
       `Ваш Email: ${email}\n` +
@@ -65,8 +63,71 @@ const Cart = () => {
       ((deliveryMethodId === 2 || deliveryMethodId === 3) ? `Адрес доставки: ${deliveryAddress}\n` : '') +
       `Общая стоимость: ${totalPrice} тенге\n\nТовары:\n${orderItems}`;
 
-    const whatsappURL = `https://wa.me/+77070402121?text=${encodeURIComponent(message)}`;
-    window.open(whatsappURL, '_blank');
+    const leadData = {
+      name: `Заказ от ${fullName}`,
+      price: totalPrice,
+      _embedded: {
+        contacts: [
+          {
+            first_name: fullName.split(' ')[0],
+            last_name: fullName.split(' ')[1] || '',
+            custom_fields_values: [
+              {
+                field_code: 'PHONE',
+                values: [
+                  {
+                    value: phone,
+                  },
+                ],
+              },
+              {
+                field_code: 'EMAIL',
+                values: [
+                  {
+                    value: email,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        notes: [
+          {
+            note_type: 'common',
+            params: {
+              text: note,
+            },
+          },
+        ],
+      },
+    };
+
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_AMOCRM_BASE_URL}/api/v4/leads`,
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_AMOCRM_ACCESS_TOKEN}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify([leadData]),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Ошибка при отправке заказа в amoCRM:', errorData);
+        throw new Error(`Ошибка HTTP: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log('Заказ успешно отправлен в amoCRM:', result);
+      alert('Заказ успешно отправлен в amoCRM!');
+    } catch (error) {
+      console.error('Ошибка при отправке заказа в amoCRM:', error);
+      alert(`Произошла ошибка при отправке заказа в amoCRM: ${error.message}`);
+    }
   };
 
   if (!isClient) return null;
@@ -103,12 +164,6 @@ const Cart = () => {
                     className="input input-bordered input-sm w-20 mt-2"
                   />
                 </div>
-                {/* <button
-                  onClick={() => removeFromCart(item.productId)}
-                  className="btn btn-sm btn-error"
-                >
-                  Удалить
-                </button> */}
               </div>
             ))
           )}
@@ -220,7 +275,7 @@ const Cart = () => {
 
             <div className="form-control mt-8">
               <button type="submit" className="btn btn-accent w-full">
-                Отправить в WhatsApp
+                Отправить заказ в amoCRM
               </button>
             </div>
           </form>
