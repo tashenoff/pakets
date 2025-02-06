@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   try {
     const { fullName, phone, email, additionalPhone, comment, deliveryMethod, deliveryAddress, cart, totalAmount } = req.body;
 
-    if (!fullName || !phone || !email || !cart.length) {
+    if (!fullName || !phone || !cart.length) {
       return res.status(400).json({ message: 'Заполните все обязательные поля' });
     }
 
@@ -21,7 +21,6 @@ export default async function handler(req, res) {
     orderDetails += `\n💰 Общая сумма: ${totalAmount} ₸`;
     orderDetails += `\n📞 Телефон: ${phone}`;
     if (additionalPhone) orderDetails += `\n📞 Доп. телефон: ${additionalPhone}`;
-    orderDetails += `\n✉️ Email: ${email}`;
     orderDetails += `\n🚚 Доставка: ${deliveryMethod === 1 ? 'Самовывоз' : 'Доставка'}`;
     if (deliveryMethod !== 1) orderDetails += `\n📍 Адрес: ${deliveryAddress}`;
     if (comment) orderDetails += `\n📝 Комментарий: ${comment}`;
@@ -35,18 +34,17 @@ export default async function handler(req, res) {
       },
     });
 
-    // Список получателей
+    // Список получателей (ТОЛЬКО АДМИНИСТРАТОР)
     const recipients = [
-      email,                        // Покупатель
-      'kail.dead.kd@gmail.com',      // Основной администратор
-      process.env.ADMIN_EMAIL        // Дополнительный администратор (указать в .env)
+      'kail.dead.kd@gmail.com', // Основной администратор
+      process.env.ADMIN_EMAIL    // Дополнительный администратор
     ].filter(Boolean); // Исключает пустые значения
 
-    // Отправка письма всем получателям
+    // Отправка письма админу
     await transporter.sendMail({
       from: `"Интернет-магазин" <${process.env.EMAIL_USER}>`,
       to: recipients.join(', '), // Все email через запятую
-      subject: 'Подтверждение заказа',
+      subject: 'Новый заказ',
       text: orderDetails,
     });
 
