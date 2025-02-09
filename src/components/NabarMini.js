@@ -58,18 +58,19 @@ const NavbarMini = () => {
     }, []);
 
     const menuItems = [
-        { label: 'Главная', href: '/', icon: <FaHome size={20} /> }, // Используем иконку FaHome
-        { label: 'Каталог', href: '/catalog', icon: <FaBook size={20} /> }, // Используем иконку FaBook
-        { label: 'О нас', href: '/about', icon: <FaInfoCircle size={20} /> }, // Используем иконку FaInfoCircle
-        { label: 'Пакеты под заказ', href: '/packz', icon: <FaBox size={20} /> }, // Используем иконку FaBox
-        { label: 'Контакты', href: '/contact', icon: <FaPhoneAlt size={20} /> }, // Используем иконку FaPhoneAlt
+        { label: 'Главная', href: '/', icon: <FaHome size={20} /> },
+        { label: 'Каталог', href: '/catalog', icon: <FaBook size={20} /> },
+        { label: 'Пакеты под заказ', href: '/packz', icon: <FaBox size={20} /> },
+        { label: 'О нас', href: '/about', icon: <FaInfoCircle size={20} /> }, // Переместил перед "Контакты"
+        { label: 'Контакты', href: '/contact', icon: <FaPhoneAlt size={20} /> },
     ];
+
 
     return (
         <nav
             className={`${isFixed
-                    ? 'sticky h-[70px] top-0 left-0 w-full z-50 bg-animated-gradient text-white shadow-md'
-                    : 'bg-animated-gradient lg:h-[70px] text-white'
+                ? 'sticky h-[70px] top-0 left-0 w-full z-50 bg-animated-gradient text-white shadow-md'
+                : 'bg-animated-gradient lg:h-[70px] text-white'
                 } px-5 py-4 transition-all duration-300`}
         >
             <div className='container'>
@@ -91,7 +92,7 @@ const NavbarMini = () => {
                         <span className='text-sm'>+7(707)0402121</span>
 
                         <Button
-                            label="мы в WhatsApp"
+                            label="написать в WhatsApp"
                             onClick={handleWhatsAppClick}
                             variant="accent"
                             size="sm"
@@ -99,20 +100,34 @@ const NavbarMini = () => {
                     </div>
 
                     {/* Navigation Links (Hidden on Mobile) */}
-                    <ul className='hidden uppercase text-[12px] font-bold lg:flex space-x-5'>
+                    <ul className='hidden uppercase text-[12px] font-bold lg:flex items-center space-x-5'>
                         {menuItems.map((item) => (
                             <li key={item.href}>
-                                <Link href={item.href}>{item.label}</Link>
+                                {item.label === 'Каталог' ? (
+                                    <Link href={item.href} className="relative inline-flex items-center px-4  border-white border rounded-full   font-bold group">
+                                        {/* Иконка только у "Каталога" */}
+                                        <span className="mr-1 text-white">{item.icon}</span>
+                                        {/* Текст с анимацией обводки */}
+                                        <span className="absolute inset-0 border-2 border-transparent rounded-md"></span>
+                                        <span className="relative z-10 px-2 py-2 rounded-md ">
+                                            {item.label}
+                                        </span>
+                                    </Link>
+                                ) : (
+                                    <Link href={item.href}>{item.label}</Link> // Остальные пункты без иконок
+                                )}
                             </li>
                         ))}
                     </ul>
 
+
+
                     {/* Right Section */}
                     <div className='hidden lg:flex items-center space-x-5'>
-                        <span>+7(707)0402121</span>
+                        <span>+7(707)040-21-21</span>
                         <div className='mr-2'>
                             <Button
-                                label="мы в WhatsApp"
+                                label="Написать в WhatsApp"
                                 onClick={handleWhatsAppClick}
                                 variant="accent"
                                 size="sm"

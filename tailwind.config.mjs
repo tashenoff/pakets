@@ -1,20 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}", // Правильный путь для страниц
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}", // Путь для компонентов
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}", // Путь для app (если используется)
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: false, // Отключение тёмного режима
+  darkMode: false,
   theme: {
     container: {
-      center: true, // Центрирование контейнера
-      padding: '1rem', // Внутренние отступы
+      center: true,
+      padding: '1rem',
       screens: {
-        sm: '600px', // Максимальная ширина для small screens
-        md: '1400px', // Максимальная ширина для medium screens
-        lg: '800px', // Максимальная ширина для large screens
-        xl: '900px', // Максимальная ширина для extra large screens
+        sm: '100%', // На маленьких экранах контейнер на всю ширину
+        md: '768px', // Средний экран
+        lg: '1024px', // Большой экран
+        xl: '1280px', // Очень большой экран
       },
     },
     extend: {
@@ -25,10 +25,10 @@ export default {
     },
   },
   plugins: [
-    require('daisyui'), // Подключение DaisyUI
+    require('daisyui'),
   ],
   daisyui: {
-    themes: ["light"], // Только светлая тема
+    themes: ["light"],
     base: true,
     styled: true,
     utils: true,

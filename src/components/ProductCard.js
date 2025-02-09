@@ -9,26 +9,24 @@ const PackagePage = ({ product }) => {
     const { t } = useTranslation('common');
     const { addToCart } = useCart();
 
-    // Устанавливаем начальное значение количества в зависимости от ID продукта
     const initialQuantity = product.id === 11 ? 50 : 100;
     const [quantity, setQuantity] = useState(initialQuantity);
-
     const [selectedSize, setSelectedSize] = useState(null);
-    const [isLoading, setIsLoading] = useState(true); // Состояние загрузки
-    const [showNotification, setShowNotification] = useState(false); // Стейт для отображения уведомления
+    const [isLoading, setIsLoading] = useState(true);
+    const [showNotification, setShowNotification] = useState(false);
 
     useEffect(() => {
         if (product.sizes && product.sizes.length > 0) {
-            setSelectedSize(product.sizes[0]); // Выбираем первый размер по умолчанию
+            setSelectedSize(product.sizes[0]);
         } else {
-            setSelectedSize(null); // Если размеров нет, устанавливаем null
+            setSelectedSize(null);
         }
-        setIsLoading(false); // Данные загружены
+        setIsLoading(false);
     }, [product]);
 
     const handleQuantityChange = (e) => {
         const value = parseInt(e.target.value, 10);
-        if (!isNaN(value) && value % 100 === 0) { // Проверяем, что число кратно 100
+        if (!isNaN(value) && value % 100 === 0) {
             setQuantity(value);
         }
     };
@@ -42,58 +40,58 @@ const PackagePage = ({ product }) => {
         if (selectedSize && quantity >= 100) {
             const productWithSelectedSize = {
                 ...product,
-                selectedSize: selectedSize.size, // Размер
-                price: selectedSize.price, // Цена выбранного размера
+                selectedSize: selectedSize.size,
+                price: selectedSize.price,
             };
-            addToCart(productWithSelectedSize, quantity, selectedSize.size); // Передаем в корзину
-            setShowNotification(true); // Показываем уведомление
-            setTimeout(() => setShowNotification(false), 3000); // Скрываем уведомление через 3 секунды
+            addToCart(productWithSelectedSize, quantity, selectedSize.size);
+            setShowNotification(true);
+            setTimeout(() => setShowNotification(false), 3000);
         }
     };
 
     const increaseQuantity = () => {
-        setQuantity(prev => prev + 100); // Увеличиваем на 100
+        setQuantity(prev => prev + 100);
     };
 
     const decreaseQuantity = () => {
-        setQuantity(prev => (prev > 100 ? prev - 100 : 100)); // Уменьшаем на 100, но не ниже 100
+        setQuantity(prev => (prev > 100 ? prev - 100 : 100));
     };
 
     if (isLoading) {
-        return <p>{t('catalog.loading')}</p>; // Показываем сообщение о загрузке
+        return <p>{t('catalog.loading')}</p>;
     }
 
-    // Добавляем проверку на null для selectedSize
     const renderStockInfo = () => {
         if (!selectedSize) {
-            return <p className="text-sm text-gray-500">{t('catalog.not_available')}</p>; // Если selectedSize пустое
+            return <p className="text-sm text-gray-500">{t('catalog.not_available')}</p>;
         }
 
         if (selectedSize.stockQuantity === 0) {
-            return <p className="text-red-500">{t('catalog.preorder')}</p>; // Сообщение о предзаказе
+            return <p className="text-red-500">{t('catalog.preorder')}</p>;
         }
 
-        return <p>в наличии: {selectedSize.stockQuantity}</p>; // Количество в наличии
+        return <p>в наличии: {selectedSize.stockQuantity}</p>;
     };
 
     return (
-        <div className="card bg-white  shadow-xl">
-            <figure className='bg-gray-50'>
+        <div className="card bg-white shadow-xl md:flex md:flex-col md:justify-between md:h-full md:p-4">
+            <figure className='bg-gray-50 md:flex-shrink-0'>
                 <Link href={`/catalog/${product.id}`}>
                     <img
                         src={product.imageUrl}
                         alt={product.translatedName}
-                        className="h-40 w-full object-cover"
+                        className="h-40 w-full object-cover md:h-48"
                     />
                 </Link>
             </figure>
-            <div className="card-body">
-                <h2 className="card-sm text-blue-500 font-bold">{product.translatedName}</h2>
+            <div className="card-body md:flex md:flex-col md:justify-between md:space-y-4 md:h-full">
+                <div className="md:flex md:flex-col md:space-y-2">
+                    <h2 className="card-sm text-blue-500 font-bold">{product.translatedName}</h2>
+                    <p>{product.color}</p>
+                </div>
 
-                <p>{product.color}</p>
-
-                <div className="flex w-full items-center justify-between">
-                    <div className="flex items-center">
+                <div className="flex w-full items-center justify-between md:flex-col md:items-stretch md:space-y-4">
+                    <div className="flex items-center justify-center md:justify-start">
                         <button
                             onClick={decreaseQuantity}
                             className="btn btn-sm bg-base-300"
@@ -104,9 +102,9 @@ const PackagePage = ({ product }) => {
                             type="number"
                             value={quantity}
                             onChange={handleQuantityChange}
-                            className="input input-bordered w-20 mx-2"
+                            className="input input-bordered w-20  mx-2"
                             min="100"
-                            step="100" // Шаг 100
+                            step="100"
                         />
                         <button
                             onClick={increaseQuantity}
@@ -116,17 +114,16 @@ const PackagePage = ({ product }) => {
                         </button>
                     </div>
 
-                    <div>
+                    <div className="text-left">
                         <p className="text-lg font-bold">
                             {selectedSize ? `${selectedSize.price} ₸` : `${product.price} ₸`}
                            <span> за шт</span>
                         </p>
-                        {/* Здесь теперь вызываем функцию renderStockInfo */}
                         {renderStockInfo()}
                     </div>
                 </div>
 
-                <div className="mt-3">
+                <div className="mt-3 w-full">
                     <label htmlFor="size" className="block text-sm font-medium">
                       выберите размер
                     </label>
@@ -145,7 +142,7 @@ const PackagePage = ({ product }) => {
                     </select>
                 </div>
 
-                <div className="card-actions mt-4">
+                <div className="card-actions mt-4 w-full">
                     <button
                         onClick={handleAddToCart}
                         className="btn bg-blue-500 text-white w-full"
@@ -155,7 +152,6 @@ const PackagePage = ({ product }) => {
                 </div>
             </div>
 
-            {/* Уведомление */}
             {showNotification && <Notification message='добавлен в корзину' onClose={() => setShowNotification(false)} />}
         </div>
     );
