@@ -24,6 +24,7 @@ export default async function handler(req, res) {
     orderDetails += `\n🚚 Доставка: ${deliveryMethod === 1 ? 'Самовывоз' : 'Доставка'}`;
     if (deliveryMethod !== 1) orderDetails += `\n📍 Адрес: ${deliveryAddress}`;
     if (comment) orderDetails += `\n📝 Комментарий: ${comment}`;
+    if (email) orderDetails += `\n✉️ Email: ${email}`; // Теперь email клиента отображается
 
     // Настраиваем SMTP-транспорт
     const transporter = nodemailer.createTransport({
