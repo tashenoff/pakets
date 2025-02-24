@@ -12,10 +12,12 @@ export default async function handler(req, res) {
       return res.status(400).json({ message: 'Заполните все обязательные поля' });
     }
 
-    // Формируем текст заявки
+    // Формируем текст заявки// Формируем текст заявки
     let orderDetails = `🛒 Новый заказ от ${fullName}\n\n`;
     cart.forEach((item, index) => {
-      orderDetails += `${index + 1}. ${item.translatedName} - ${item.quantity} шт. (${item.price} ₸)\n`;
+      orderDetails += `${index + 1}. ${item.translatedName} - ${item.quantity} шт. (${item.price} ₸)`;
+      if (item.size) orderDetails += `, Размер: ${item.size}`; // Добавляем размер
+      orderDetails += `\n`;
     });
 
     orderDetails += `\n💰 Общая сумма: ${totalAmount} ₸`;
@@ -24,7 +26,7 @@ export default async function handler(req, res) {
     orderDetails += `\n🚚 Доставка: ${deliveryMethod === 1 ? 'Самовывоз' : 'Доставка'}`;
     if (deliveryMethod !== 1) orderDetails += `\n📍 Адрес: ${deliveryAddress}`;
     if (comment) orderDetails += `\n📝 Комментарий: ${comment}`;
-    if (email) orderDetails += `\n✉️ Email: ${email}`; // Теперь email клиента отображается
+    if (email) orderDetails += `\n✉️ Email: ${email}`;
 
     // Настраиваем SMTP-транспорт
     const transporter = nodemailer.createTransport({
